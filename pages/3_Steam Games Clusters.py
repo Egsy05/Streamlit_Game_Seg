@@ -13,4 +13,5 @@ else:
     filter_table = data
     st.write(filter_table)
 
-st.scatter_chart(filter_table, x='Positive_Negative_dif', y='Peak CCU', color='Name',size='days_since_release')
+data['Review'] = data['Positive']-data['Negative']
+st.scatter_chart(filter_table, x='Price', y='Peak CCU', color='Estimated owners',size='Review')
