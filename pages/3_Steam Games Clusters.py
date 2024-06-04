@@ -4,10 +4,10 @@ import pandas as pd
 data = pd.read_csv("games_labels.csv")
 
 st.header("This is the clusters for All games in Steam from 2008 to 2023", divider='blue')
-cluster_value = data['clusters'].unique()
+cluster_value = data['Cluster'].unique()
 select_clusters = st.multiselect("Select Cluster",cluster_value)
 if select_clusters:
-    filter_table = data[data['clusters'].isin(select_clusters)]
+    filter_table = data[data['Cluster'].isin(select_clusters)]
     st.write(filter_table)
 else:
     filter_table = data
