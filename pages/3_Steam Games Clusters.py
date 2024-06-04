@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 
-data = pd.read_csv("games_.csv")
+data = pd.read_csv("games_labels.csv")
 
 st.header("This is the clusters for All games in Steam from 2008 to 2023", divider='blue')
 cluster_value = data['clusters'].unique()
