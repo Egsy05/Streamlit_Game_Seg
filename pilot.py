@@ -14,7 +14,7 @@ st.write("Our data has been engineered to become easy to read and understand, "
         "you click this link below to lookup to the original data.")
 st.link_button("Data","https://www.kaggle.com/datasets/mexwell/steamgames")
 
-data = pd.read_csv('games_.csv')
+data = pd.read_csv('games_labels.csv')
 
 name_to_search = st.text_input('Search your game here:')
 if name_to_search.strip() == '':
