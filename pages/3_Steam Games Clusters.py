@@ -3,6 +3,8 @@ import pandas as pd
 
 data = pd.read_csv("games_labels.csv")
 data['Review'] = data['Positive']-data['Negative']
+data['Profit'] = data['Peak CCU']*data['Price']
+data['Since_Release'] = max(data['Release_date'])-data['Release_date']
 st.header("This is the clusters for All games in Steam from 2008 to 2023", divider='blue')
 cluster_value = data['Labels'].sort_values().unique()
 select_clusters = st.multiselect("Select Cluster",cluster_value)
@@ -14,4 +16,4 @@ else:
     st.write(filter_table)
 
 
-st.scatter_chart(filter_table, x='Price', y='Peak CCU', color='Estimated owners',size='Review')
+st.scatter_chart(filter_table, x='Price', y='Peak CCU', color='Labels',size='Review')
